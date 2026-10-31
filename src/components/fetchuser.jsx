@@ -25,13 +25,13 @@ const FetchUser = () => {
     return (
         <div className=" bg-blue-900 p-5">
             <div className="flex item-center justify-center">
-                <h1 className="text-5xl font-bold text-cyan-50">Users-List</h1>
+                <h1 className="text-5xl font-bold text-cyan-50 p-10">Tittle-List from todos</h1>
             </div>
             <div>
-                <ol className=" text-olive text-white">
+                <ol className=" text-olive font-semibold">
                     {data.map(
                         (values) => (
-                            <li className="shadow-xl">{values.title}</li>
+                            <li className="shadow-xl">Title -- {values.title}</li>
                         )
                     )}
                 </ol>
