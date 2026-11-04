@@ -1,18 +1,70 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
-import FetchUser from './components/fetchuser'
+import { Navbar } from "./components/navbar";
+import { Routes, Route } from "react-router-dom"
 
-function App() {
-  const [count, setCount] = useState(0)
+//method-2
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./components/pages/home";
+import About from "./components/pages/about";
+import Skills from "./components/pages/skills";
+import Contact from "./components/pages/contact";
+import Notfound from "./components/notfound"
+import Form1 from "./components/pages/form1";
+import Form2 from "./components/pages/form2";
+
+
+export default function App() {
+
 
   return (
     <>
-      <FetchUser />
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />}>
+
+          {/* //to display child with parent(index prop) */}
+          {/* <Route index element={<Form1 />} /> */}
+
+          <Route path="details" element={<Form1 />} />
+          <Route path="address" element={<Form2 />} />
+        </Route>
+        <Route path="/skills" element={<Skills />} />
+      </Routes>
+
     </>
-  )
+  );
 }
 
-export default App
+
+
+//   {
+//     path: '/',
+//     element: <Router />,
+//     errorElement: <Notfound />
+//   },
+
+//   {
+//     path: '/login',
+//     element: <Dhinesh />
+//   },
+
+//   {
+//     path: '/api',
+//     element: <FetchUser />
+//   }
+// ])
+
+// function App() {
+//   const [count, setCount] = useState(0)
+
+//   return (
+//     <>
+//       <RouterProvider router={router} />
+//     </>
+//   )
+// }
+
+// export default 
+
